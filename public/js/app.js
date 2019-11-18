@@ -1889,6 +1889,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -77392,8 +77393,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/sunflash/Documents/Laravel/push/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/sunflash/Documents/Laravel/push/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/test-email-service-v0/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/test-email-service-v0/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
