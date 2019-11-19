@@ -44,8 +44,8 @@ class NotifyUsers extends Command
      */
     public function handle()
     {
-        //One hour is added to compensate for PHP being one hour faster 
-        $now = date("Y-m-d H:i", strtotime(Carbon::now()->addHour()));
+        //One hour is added to compensate for PHP being one hour faster
+        $now = date('Y-m-d H:i', strtotime(Carbon::now()->addHour()));
         logger($now);
 
         $messages = Message::get();
@@ -57,12 +57,12 @@ class NotifyUsers extends Command
                     $users = User::all();
                     foreach($users as $user) {
                         dispatch(new SendMailJob(
-                            $user->email, 
+                            $user->email,
                             new NewArrivals($user, $message))
                         );
                     }
                     $message->delivered = 'YES';
-                    $message->save();   
+                    $message->save();
                 }
             });
         }

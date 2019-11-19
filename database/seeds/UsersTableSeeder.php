@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
         User::truncate();
 
         foreach(range(1, 5) as $i) {
+
             User::create([
                 'name' => $faker->name,
                 'email' => $faker->unique()->email,
@@ -26,6 +27,7 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('password'),
                 'remember_token' => Str::random(10),
             ]);
+
         }
     }
 }

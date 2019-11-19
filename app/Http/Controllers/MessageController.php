@@ -17,7 +17,6 @@ class MessageController extends Controller
     }
 
     public function getMessages(){
-
         return Message::orderBy('created_at', 'desc')->get();
     }
 
@@ -33,22 +32,20 @@ class MessageController extends Controller
 
             $message->delivered = 'YES';
             $message->send_date = Carbon::now();
-            $message->save();   
+            $message->save();
 
             $users = User::all();
 
             foreach($users as $user) {
                 dispatch(new SendMailJob($user->email, new NewArrivals($user, $message)));
             }
-                
+
             return response()->json('Mail sent.', 201);
 
-        } else { 
+        } else {
 
-            $message->date_string = date("Y-m-d H:i", strtotime($request->send_date));
-
-            $message->save();   
-
+            $message->date_string = date('Y-m-d H:i', strtotime($request->send_date));
+            $message->save();
             return response()->json('Notification will be sent later.', 201);
         }
     }

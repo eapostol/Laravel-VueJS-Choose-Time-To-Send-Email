@@ -13,7 +13,9 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        echo 'creating the messages table';
+
+        Schema::create('messages', static function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('body');
@@ -29,7 +31,7 @@ class CreateMessagesTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('messages');
     }
