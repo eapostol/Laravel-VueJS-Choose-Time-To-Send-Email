@@ -1890,6 +1890,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1907,7 +1908,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getUsers();
     this.getMessages();
-    console.log('these are the users: ', this.users);
   },
   computed: {
     disabled: function disabled() {
@@ -1935,6 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
     sendEmail: function sendEmail() {
       var _this3 = this;
 
+      // eja: (2) on submit, prepare to send data from view to controller
       this.loading = true;
       var sendData = {
         title: this.title,
@@ -1943,7 +1944,8 @@ __webpack_require__.r(__webpack_exports__);
         item: this.item
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/notifications', sendData).then(function (resp) {
-        console.log(resp);
+        console.log('test');
+        console.log('the response is ', resp);
         $('#create_form_modal').modal('hide');
 
         if (_this3.item == 'now') {
@@ -77393,8 +77395,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/test-email-service-v0/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/test-email-service-v0/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/developer/projects/php-projects/test-email-service-v0/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/developer/projects/php-projects/test-email-service-v0/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

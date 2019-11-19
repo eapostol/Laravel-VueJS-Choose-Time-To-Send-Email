@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/get_users', 'MessageController@getUsers');
 Route::get('/get_messages', 'MessageController@getMessages');
-Route::post('notifications', 'MessageController@sendMail');
+Route::post('/notifications', 'MessageController@sendMail');
 
 
 

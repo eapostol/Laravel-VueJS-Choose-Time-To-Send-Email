@@ -44,14 +44,16 @@ class NotifyUsers extends Command
      */
     public function handle()
     {
-        //One hour is added to compensate for PHP being one hour faster
+        // One hour is added to compensate for PHP being one hour faster
         $now = date('Y-m-d H:i', strtotime(Carbon::now()->addHour()));
         logger($now);
 
         $messages = Message::get();
+
         if($messages !== null){
-            //Get all messages that their dispatch date is due
-            $messages->where('date_string',  $now)->each(function($message) {
+            // TODO: eja - check the date_string
+            // Get all messages that their dispatch date is due
+            $messages->where('date_string', $now)->each(static function($message) {
                 if($message->delivered == 'NO')
                 {
                     $users = User::all();

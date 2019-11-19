@@ -66,6 +66,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+                <!-- eja: (1) trace submit. prevent page reload -->
             <form @submit.prevent="sendEmail">
                 <div class="modal-body">
                     <div class="form-group">
@@ -101,15 +102,15 @@
                         Sending Email...
                     </button>
                     <button
-                        :disabled="disabled" 
+                        :disabled="disabled"
                         v-if="!loading && item === 'now'"
                         type="submit" class="btn  btn-success">
                         Send Email
                     </button>
-                    <button  
+                    <button
                         v-if="!loading && item === 'later'"
                         :disabled="disabled"
-                        type="submit" 
+                        type="submit"
                         class="btn  btn-success"
                         >
                         Send Later
@@ -144,21 +145,21 @@ export default {
   created(){
       this.getUsers();
       this.getMessages();
-      console.log('these are the users: ', this.users)
-},
+      },
 
   computed: {
       disabled(){
-      return  this.title === '' || !this.title || this.body === '' || !this.body || this.loading 
+      return  this.title === '' || !this.title || this.body === '' || !this.body || this.loading
     },
   },
 
   methods: {
-    
+
     getUsers(){
         axios.get('/get_users').then(res => {
             this.users = res.data;
         })
+
     },
 
     getMessages(){
@@ -170,15 +171,15 @@ export default {
     openModal(){
         $('#create_form_modal').modal('show');
     },
-    
+
     sendEmail () {
-      this.loading = true
-
-      const sendData = { title: this.title, body: this.body, send_date: this.send_date, item: this.item }
-
+        // eja: (2) on submit, prepare to send data from view to controller
+      this.loading = true;
+      const sendData = { title: this.title, body: this.body, send_date: this.send_date, item: this.item };
     axios.post('/notifications', sendData)
         .then((resp) => {
-          console.log(resp);
+            console.log('test');
+          console.log('the response is ', resp);
             $('#create_form_modal').modal('hide');
 
             if (this.item == 'now') {
@@ -197,7 +198,7 @@ export default {
           this.title = '';
           this.body = '';
           console.log(resp)
-          this.loading = false 
+          this.loading = false
 
           setTimeout(() => {
             window.location.reload(window.origin + '/');
