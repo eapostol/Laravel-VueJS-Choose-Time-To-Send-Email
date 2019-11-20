@@ -4,7 +4,10 @@
       <w>axios</w>
       <w>clublink</w>
       <w>flysystem</w>
+      <w>mailtrap</w>
       <w>moontoast</w>
+      <w>smtp</w>
+      <w>usleep</w>
     </words>
   </dictionary>
 </component>

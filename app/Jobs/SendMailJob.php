@@ -40,7 +40,12 @@ class SendMailJob implements ShouldQueue
     */
    public function handle()
    {
+/*       if(env('MAIL_HOST', false) === 'smtp.mailtrap.io'){
+           sleep(10); //use usleep(500000) for half a second or less
+       }*/
+
        // send mail with fields and template
        Mail::to($this->email)->send($this->emailClass);
+
    }
 }

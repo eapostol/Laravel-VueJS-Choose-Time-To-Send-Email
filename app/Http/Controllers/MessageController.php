@@ -33,7 +33,6 @@ class MessageController extends Controller
             $message->delivered = 'YES';
             $message->send_date = Carbon::now();
             $message->save();
-
             $users = User::all();
 
             foreach($users as $user) {
