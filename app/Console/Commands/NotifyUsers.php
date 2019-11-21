@@ -45,7 +45,9 @@ class NotifyUsers extends Command
     public function handle()
     {
         // One hour is added to compensate for PHP being one hour faster
-        $now = date('Y-m-d H:i', strtotime(Carbon::now()->addHour()));
+        // $now = date('Y-m-d H:i', strtotime(Carbon::now()->addHour()));
+        // logger($now);
+        $now = date('Y-m-d', strtotime(Carbon::now()->addHour()));
         logger($now);
 
         $messages = Message::get();

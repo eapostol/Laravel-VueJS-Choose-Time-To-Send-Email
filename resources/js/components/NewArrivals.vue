@@ -15,7 +15,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Date Added</th>
+                        <th>Date Added (UTC)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                         <th>Title</th>
                         <th>Body</th>
                         <th>Delivered</th>
-                        <th>Send Date</th>
+                        <th>Send Date (UTC)</th>
                     </tr>
                 </thead>
                 <tbody>

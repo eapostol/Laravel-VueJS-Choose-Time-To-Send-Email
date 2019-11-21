@@ -20,4 +20,5 @@ Version 0.05
 
 8. Run: `npm install`
 
-9. Run: `php artisan serve` (not needed if you set up homestead)
+9. Run: `php artisan serve`
+

@@ -28,9 +28,10 @@ class MessageController extends Controller
         $message->body = $request->body;
         $message->save();
 
-        if($request->item == "now") {
+        if($request->item === 'now') {
 
             $message->delivered = 'YES';
+
             $message->send_date = Carbon::now();
             $message->save();
             $users = User::all();
@@ -42,9 +43,9 @@ class MessageController extends Controller
             return response()->json('Mail sent.', 201);
 
         } else {
-            // TODO: correct this to send the right date and time
+            // Y-m-d H:i - Full Year, numeric month, two digit day
 
-            $message->date_string = date('Y-m-d H:i', strtotime($request->send_date));
+            $message->date_string = date('Y-m-d', strtotime($request->send_date));
             $message->save();
             return response()->json('Notification will be sent later.', 201);
         }
