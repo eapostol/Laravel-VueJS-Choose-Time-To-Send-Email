@@ -52,21 +52,24 @@ class NotifyUsers extends Command
 
         if($messages !== null){
             // TODO: eja - check the date_string
-            // Get all messages that their dispatch date is due
-            $messages->where('date_string', $now)->each(static function($message) {
+            // Get All Messages where the date matches the current date;
+
+            $sendMessages = static function ($message) {
                 if($message->delivered == 'NO')
                 {
                     $users = User::all();
                     foreach($users as $user) {
                         dispatch(new SendMailJob(
-                            $user->email,
-                            new NewArrivals($user, $message))
+                                $user->email,
+                                new NewArrivals($user, $message))
                         );
                     }
                     $message->delivered = 'YES';
                     $message->save();
                 }
-            });
+            };
+
+            $messages->where('date_string', $now)->each($sendMessages);
         }
     }
 }

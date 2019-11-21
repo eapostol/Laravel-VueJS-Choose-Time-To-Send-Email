@@ -40,7 +40,7 @@
                         <th>Title</th>
                         <th>Body</th>
                         <th>Delivered</th>
-                        <th>Sent Date</th>
+                        <th>Send Date</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7416b17f-a680-4db4-9a43-21c72d0a3e4d" name="mailservice00" url="http://mailservice00.homestead.test">
+        <fileTransfer port="0" mountedRoot="$PROJECT_DIR$/public" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

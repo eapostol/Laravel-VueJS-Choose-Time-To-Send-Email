@@ -43,6 +43,7 @@ class MessageController extends Controller
 
         } else {
             // TODO: correct this to send the right date and time
+
             $message->date_string = date('Y-m-d H:i', strtotime($request->send_date));
             $message->save();
             return response()->json('Notification will be sent later.', 201);

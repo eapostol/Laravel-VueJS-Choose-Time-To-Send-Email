@@ -18,6 +18,6 @@ Version 0.05
 
 7. Run: `php artisan migrate:fresh --seed`
 
-8. Run: `npm install dump-autoload`
+8. Run: `npm install`
 
 9. Run: `php artisan serve` (not needed if you set up homestead)
